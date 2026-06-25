@@ -8,10 +8,7 @@
 ![SNS](https://img.shields.io/badge/SNS-Notifications-pink)
 ![Status](https://img.shields.io/badge/Status-Recruiter%20Ready-brightgreen)
 
-A recruiter-ready **AWS serverless feedback collection system** that hosts a static feedback form on S3, sends submissions through API Gateway, processes them with Lambda, stores records in DynamoDB, sends SNS alerts, and monitors the workflow with CloudWatch.
-
-**Core idea:** collect customer/user feedback without managing servers.  
-**Architecture style:** event-driven, serverless, low-cost, scalable, and production-aware.
+**Serverless feedback system using S3, API Gateway, Lambda, DynamoDB, SNS, IAM, and CloudWatch for secure feedback submission, storage, alerts, and monitoring.**
 
 ---
 
