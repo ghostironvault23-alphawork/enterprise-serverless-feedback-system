@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+.env
+
+# AWS / SAM
+.aws-sam/
+.sam/
+packaged.yaml
+
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.*
+.terraform.lock.hcl
+
+# OS / IDE
+.DS_Store
+.vscode/
+.idea/
+
+# Local artifacts
+coverage/
+dist/
+build/
