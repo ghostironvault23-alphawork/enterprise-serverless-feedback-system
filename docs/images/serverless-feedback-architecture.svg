@@ -1,0 +1,54 @@
+<svg width="1400" height="650" viewBox="0 0 1400 650" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="header" x1="0" y1="0" x2="1400" y2="0"><stop stop-color="#111827"/><stop offset="1" stop-color="#f97316"/></linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="8" stdDeviation="8" flood-color="#111827" flood-opacity="0.16"/></filter>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M2 2 L10 6 L2 10 Z" fill="#f97316"/></marker>
+    <style>.title{font:800 34px Arial,sans-serif;fill:white}.sub{font:600 15px Arial,sans-serif;fill:#ffedd5}.h{font:800 20px Arial,sans-serif;fill:#111827}.t{font:600 14px Arial,sans-serif;fill:#475569}.box{fill:#fff;stroke:#fed7aa;stroke-width:2;rx:18;filter:url(#shadow)}.icon{font:700 34px Arial,sans-serif;fill:#f97316}.arrow{stroke:#f97316;stroke-width:4;marker-end:url(#arrow)}</style>
+  </defs>
+  <rect width="1400" height="650" fill="#fff7ed"/>
+  <rect width="1400" height="76" fill="url(#header)"/>
+  <text x="50" y="44" class="title">Enterprise Serverless Feedback System</text>
+  <text x="50" y="65" class="sub">S3 static website → API Gateway → Lambda → DynamoDB + SNS → CloudWatch monitoring</text>
+
+  <rect x="60" y="170" width="170" height="145" rx="18" class="box"/>
+  <text x="145" y="215" text-anchor="middle" class="icon">USER</text>
+  <text x="145" y="252" text-anchor="middle" class="h">User</text>
+  <text x="145" y="276" text-anchor="middle" class="t">Submits feedback</text>
+
+  <rect x="285" y="170" width="190" height="145" rx="18" class="box"/>
+  <text x="380" y="215" text-anchor="middle" class="icon">S3</text>
+  <text x="380" y="252" text-anchor="middle" class="h">S3 Website</text>
+  <text x="380" y="276" text-anchor="middle" class="t">Static frontend</text>
+
+  <rect x="535" y="170" width="190" height="145" rx="18" class="box"/>
+  <text x="630" y="215" text-anchor="middle" class="icon">API</text>
+  <text x="630" y="252" text-anchor="middle" class="h">API Gateway</text>
+  <text x="630" y="276" text-anchor="middle" class="t">Secure endpoint</text>
+
+  <rect x="785" y="170" width="190" height="145" rx="18" class="box"/>
+  <text x="880" y="215" text-anchor="middle" class="icon">λ</text>
+  <text x="880" y="252" text-anchor="middle" class="h">Lambda</text>
+  <text x="880" y="276" text-anchor="middle" class="t">Validate + process</text>
+
+  <rect x="1050" y="105" width="210" height="125" rx="18" class="box"/>
+  <text x="1155" y="147" text-anchor="middle" class="icon">DB</text>
+  <text x="1155" y="181" text-anchor="middle" class="h">DynamoDB</text>
+  <text x="1155" y="205" text-anchor="middle" class="t">Store feedback</text>
+
+  <rect x="1050" y="285" width="210" height="125" rx="18" class="box"/>
+  <text x="1155" y="327" text-anchor="middle" class="icon">SNS</text>
+  <text x="1155" y="361" text-anchor="middle" class="h">SNS Alerts</text>
+  <text x="1155" y="385" text-anchor="middle" class="t">Email notification</text>
+
+  <rect x="785" y="430" width="475" height="105" rx="18" class="box"/>
+  <text x="1023" y="469" text-anchor="middle" class="icon">LOGS</text>
+  <text x="1023" y="501" text-anchor="middle" class="h">CloudWatch + IAM</text>
+  <text x="1023" y="525" text-anchor="middle" class="t">Monitoring, troubleshooting, and least-privilege access</text>
+
+  <line x1="230" y1="242" x2="285" y2="242" class="arrow"/>
+  <line x1="475" y1="242" x2="535" y2="242" class="arrow"/>
+  <line x1="725" y1="242" x2="785" y2="242" class="arrow"/>
+  <line x1="975" y1="220" x2="1050" y2="170" class="arrow"/>
+  <line x1="975" y1="265" x2="1050" y2="345" class="arrow"/>
+  <line x1="880" y1="315" x2="880" y2="430" class="arrow"/>
+</svg>
