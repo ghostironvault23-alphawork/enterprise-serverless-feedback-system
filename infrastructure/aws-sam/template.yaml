@@ -1,0 +1,62 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: Enterprise Serverless Feedback System using S3, API Gateway, Lambda, DynamoDB, SNS, IAM, and CloudWatch.
+
+Globals:
+  Function:
+    Runtime: python3.11
+    Timeout: 20
+    MemorySize: 256
+    Tracing: Active
+
+Resources:
+  FeedbackTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      BillingMode: PAY_PER_REQUEST
+      AttributeDefinitions:
+        - AttributeName: feedbackId
+          AttributeType: S
+      KeySchema:
+        - AttributeName: feedbackId
+          KeyType: HASH
+      SSESpecification:
+        SSEEnabled: true
+
+  FeedbackTopic:
+    Type: AWS::SNS::Topic
+    Properties:
+      DisplayName: Feedback Alerts
+
+  FeedbackFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: ../../lambda/
+      Handler: handler.lambda_handler
+      Environment:
+        Variables:
+          DYNAMODB_TABLE: !Ref FeedbackTable
+          SNS_TOPIC_ARN: !Ref FeedbackTopic
+          ALLOWED_ORIGIN: '*'
+      Policies:
+        - DynamoDBCrudPolicy:
+            TableName: !Ref FeedbackTable
+        - SNSPublishMessagePolicy:
+            TopicName: !GetAtt FeedbackTopic.TopicName
+      Events:
+        FeedbackApi:
+          Type: HttpApi
+          Properties:
+            Path: /feedback
+            Method: POST
+
+Outputs:
+  FeedbackApiUrl:
+    Description: API Gateway endpoint for feedback submissions
+    Value: !Sub "https://${ServerlessHttpApi}.execute-api.${AWS::Region}.amazonaws.com/feedback"
+  FeedbackTableName:
+    Description: DynamoDB feedback table
+    Value: !Ref FeedbackTable
+  FeedbackTopicArn:
+    Description: SNS topic ARN
+    Value: !Ref FeedbackTopic
