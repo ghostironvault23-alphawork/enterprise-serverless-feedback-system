@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Enterprise Serverless Feedback System</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="page">
+    <section class="hero">
+      <p class="eyebrow">AWS Serverless Feedback Platform</p>
+      <h1>Collect, process, store, and notify feedback without managing servers.</h1>
+      <p class="subtitle">Static website on S3, secure API Gateway endpoint, Lambda processing, DynamoDB storage, SNS notification, and CloudWatch monitoring.</p>
+    </section>
+
+    <section class="card">
+      <h2>Submit Feedback</h2>
+      <form id="feedbackForm">
+        <label for="name">Name</label>
+        <input id="name" name="name" type="text" placeholder="Jane Doe" required />
+
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" placeholder="jane@example.com" required />
+
+        <label for="rating">Rating</label>
+        <select id="rating" name="rating" required>
+          <option value="5">5 - Excellent</option>
+          <option value="4">4 - Good</option>
+          <option value="3">3 - Average</option>
+          <option value="2">2 - Poor</option>
+          <option value="1">1 - Critical</option>
+        </select>
+
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="5" placeholder="Share your feedback..." required></textarea>
+
+        <button type="submit">Send Feedback</button>
+      </form>
+      <pre id="result">Configure API_ENDPOINT in app.js, then submit feedback.</pre>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
